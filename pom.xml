@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>swagger-issue</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-${maven.build.timestamp}</version>
+
+    <properties>
+        <maven.build.timestamp.format>yyMMdd_HHmm</maven.build.timestamp.format>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- ======== JEE Dependency ======== -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>1.19.4</version>
+        </dependency>
+
+        <!-- ======== Payara ======== -->
+        <dependency>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-embedded-all</artifactId>
+            <version>4.1.1.161</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ======== Swagger ======== -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <!-- ======== Commons ======== -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>test-service</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <webResources>
+                            <resource>
+                                <filtering>true</filtering>
+                                <directory>src/main/webapp</directory>
+                                <includes>
+                                    <include>**/web.xml</include>
+                                </includes>
+                            </resource>
+                        </webResources>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

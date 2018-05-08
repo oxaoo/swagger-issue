@@ -1,0 +1,9 @@
+resourcePackages:
+- com.example.swagger.issue
+prettyPrint: true
+cacheTTL: 0
+openAPI:
+  info:
+    version: 1.0.0
+    title: Swagger Issue Service
+    description: 'The Test Swagger Issue Service'
